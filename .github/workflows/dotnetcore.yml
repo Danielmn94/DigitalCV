@@ -15,3 +15,12 @@ jobs:
         dotnet-version: 3.0.100 
     - name: Build with dotnet
       run: dotnet build --configuration Release
+    - name: dotnet publish
+      run: |
+        dotnet publish -c Release -o DigitalCV
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v1
+      with: 
+        app-name: DigitalCVWebApp # Replace with your app name
+        publish-profile: $publish_profile
+        package: './digitalcvwebapp' 
