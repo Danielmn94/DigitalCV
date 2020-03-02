@@ -13,6 +13,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.0.100 
+    
     - name: Build with dotnet
       run: dotnet build --configuration Release
     - name: dotnet publish
@@ -22,5 +23,5 @@ jobs:
       uses: azure/webapps-deploy@v1
       with: 
         app-name: DigitalCVWebApp # Replace with your app name
-        publish-profile: $publish_profile
-        package: './digitalcvwebapp' 
+        publish-profile: $
+        package: './digitalcv' 
