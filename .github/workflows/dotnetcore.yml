@@ -23,5 +23,5 @@ jobs:
       uses: azure/webapps-deploy@v1
       with: 
         app-name: DigitalCVWebApp # Replace with your app name
-        publish-profile: $
-        package: './digitalcv' 
+        publish-profile: $publish_profile
+        package: '.' 
