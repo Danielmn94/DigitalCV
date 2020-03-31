@@ -22,7 +22,6 @@ jobs:
 
       # Checkout the repos
       - uses: actions/checkout@master
-      - uses: actions/checkout@develop
       
       # Setup .NET Core SDK
       - name: Setup .NET Core
