@@ -16,6 +16,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\DigitalCV.Data\DigitalCV.Data.csproj" />
     <ProjectReference Include="..\DigitalCV.DTO\DigitalCV.DTO.csproj" />
     <ProjectReference Include="..\DigitalCV.Service\DigitalCV.Service.csproj" />
   </ItemGroup>
