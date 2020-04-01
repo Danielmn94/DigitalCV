@@ -4,11 +4,11 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace DigitalCV.Web.Data
+namespace DigitalCV.Data.Domain
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class DigitalCVContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public DigitalCVContext(DbContextOptions<DigitalCVContext> options)
             : base(options)
         {
         }
