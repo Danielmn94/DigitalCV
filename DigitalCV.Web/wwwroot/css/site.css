@@ -46,11 +46,6 @@ body {
 	src: url(/fonts/Courgette-Regular.ttf);
 }
 
-/* Link CSS */
-.forgotpw:hover {
-	color: #104F60 !important;
-}
-
 /* Checkbox color */
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
 	background-color: #104F60;
