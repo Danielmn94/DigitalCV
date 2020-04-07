@@ -12,6 +12,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DigitalCV.Data.Domain;
+using DigitalCV.Web.Models.Account;
+using DigitalCV.Data.Domain.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace DigitalCV.Web
 {
@@ -30,8 +33,20 @@ namespace DigitalCV.Web
             services.AddDbContext<DigitalCVContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<DigitalCVContext>();
+
+            services.AddDefaultIdentity<ApplicationUser>()
+            .AddEntityFrameworkStores<DigitalCVContext>();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = $"/Account/Login";
+                options.LogoutPath = $"/Account/Logout";
+                options.AccessDeniedPath = $"/Account/AccessDenied";
+            });
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -62,7 +77,7 @@ namespace DigitalCV.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
