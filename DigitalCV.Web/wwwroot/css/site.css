@@ -35,8 +35,7 @@ body {
 }
 
 .card {
-	background-color: rgba(0,0,0,0.4) !important;
-	height: 390px !important;
+	background-color: rgba(0,0,0,0.6) !important;
 }
 
 /*Custom font*/
@@ -94,4 +93,11 @@ body {
 	.card {
 		max-width: 450px;
 	}
+}
+
+/* Remove bullet in validation dic, and center content */
+
+.validation-summary-errors ul {
+	list-style: none;
+	margin-left: -40px
 }

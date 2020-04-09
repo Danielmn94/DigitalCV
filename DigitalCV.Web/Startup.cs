@@ -15,6 +15,11 @@ using DigitalCV.Data.Domain;
 using DigitalCV.Web.Models.Account;
 using DigitalCV.Data.Domain.Models;
 using Microsoft.AspNetCore.Http;
+using DigitalCV.Data.Interfaces;
+using DigitalCV.Data.Repositories;
+using DigitalCV.Service.Services;
+using DigitalCV.Service.Interfaces;
+using AutoMapper;
 
 namespace DigitalCV.Web
 {
@@ -34,8 +39,22 @@ namespace DigitalCV.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddDefaultIdentity<ApplicationUser>()
             .AddEntityFrameworkStores<DigitalCVContext>();
+
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<IAccountService, AccountService>();
 
             services.ConfigureApplicationCookie(options =>
             {
