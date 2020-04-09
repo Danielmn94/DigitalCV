@@ -10,28 +10,39 @@
 
 	<div class="card col-xl-5 col-lg-5 col-md-6 col-sm-7">
 		<div class="card-body cardbody">
-			<form asp-controller="Account" asp-action="Login" method="post">
-				<fieldset>
-
+			<section>
+				<form asp-controller="Account" asp-action="Login" method="post" novalidate>
 					<h5 class="whitefont">Hej og velkommen ! Venligst login</h5>
 
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
 					<div class="form-group mt-5 input-group groupprepend">
-						<div class="input-group-prepend">
-							<div class="inputgroup input-group-text"><i class="fas fa-envelope"></i></div>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="inputgroup input-group-text"><i class="fas fa-envelope"></i></span>
+							</div>
+							<input asp-for="Email" class="formcontrol form-control" placeholder="Email" autofocus>
 						</div>
-						<input asp-for="Email" class="formcontrol form-control" placeholder="Email" autofocus>
+						<div style="width:100%">
+							<span asp-validation-for="Email" class="text-danger d-flex justify-content-center"></span>
+						</div>
 					</div>
 
 					<div class="form-group mt-4 input-group groupprepend">
-						<div class="input-group-prepend">
-							<div class="inputgroup input-group-text"><i class="fas fa-lock"></i></div>
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="inputgroup input-group-text"><i class="fas fa-lock"></i></div>
+							</div>
+							<input asp-for="Password" class="formcontrol form-control" placeholder="Adgangskode" type="password" autocomplete="off">
 						</div>
-						<input asp-for="Password" class="formcontrol form-control" placeholder="Adgangskode" type="password" autocomplete="off">
+						<div style="width:100%">
+							<span asp-validation-for="Password" class="text-danger d-flex justify-content-center"></span>
+						</div>
 					</div>
 
 					<div class="form-group">
 						<div class="custom-control custom-checkbox custom-control-lg">
-							<input asp-for="@Model.RememberMe" type="checkbox" class="custom-control-input" >
+							<input asp-for="@Model.RememberMe" type="checkbox" class="custom-control-input">
 							<label asp-for="@Model.RememberMe" class="whitefont custom-control-label"><a class="loginLabel">Husk mig</a></label>
 						</div>
 					</div>
@@ -39,8 +50,8 @@
 					<div class="form-group">
 						<button class="loginbutton btn btn-primary" name="button" value="login">Login</button>
 					</div>
-				</fieldset>
-			</form>
+				</form>
+			</section>
 		</div>
 
 

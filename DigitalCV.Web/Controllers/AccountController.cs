@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DigitalCV.Data.Domain.Models;
+﻿using System.Threading.Tasks;
+using AutoMapper;
+using DigitalCV.DTO.DTOs;
+using DigitalCV.Service.Interfaces;
 using DigitalCV.Web.Models.Account;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalCV.Web.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly IUserService _userService;
+        private readonly IAccountService _accountService;
+        private readonly IMapper _mapper;
 
-        public AccountController(SignInManager<ApplicationUser> signInManager)
+        public AccountController(IUserService userService, IMapper mapper, IAccountService accountService)
         {
-            _signInManager = signInManager;
+            _userService = userService;
+            _mapper = mapper;
+            _accountService = accountService;
         }
 
         [HttpGet]
@@ -28,12 +30,31 @@ namespace DigitalCV.Web.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel lvm)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
 
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, lvm.RememberMe, lockoutOnFailure: false);
+                var user = await _userService.GetUserByEmail(model.Email);
+
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Mail findes ikke");
+                    return View(model);
+                }
+
+                var password = await _userService.CheckPassword(user, model.Password);
+
+                if (!password)
+                {
+                    ModelState.AddModelError(string.Empty, "Password er forkert");
+                    return View(model);
+                }
+
+                var convertedModel = _mapper.Map<LoginDTO>(model);
+
+                var result = await _accountService.Login(convertedModel);
 
                 if (result.Succeeded)
                 {
@@ -42,11 +63,11 @@ namespace DigitalCV.Web.Controllers
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Login fejlede");
-                    return View(lvm);
+                    return View(model);
                 }
             }
 
-            return View(lvm);
+            return View(model);
         }
 
         [AllowAnonymous]
