@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalCV.Web.Controllers
 {
-    public class AccountController : Controller
+    public class IdentityController : Controller
     {
         private readonly IUserService _userService;
         private readonly IAccountService _accountService;
         private readonly IMapper _mapper;
 
-        public AccountController(IUserService userService, IMapper mapper, IAccountService accountService)
+        public IdentityController(IUserService userService, IMapper mapper, IAccountService accountService)
         {
             _userService = userService;
             _mapper = mapper;
@@ -25,6 +25,8 @@ namespace DigitalCV.Web.Controllers
         [AllowAnonymous]
         public IActionResult Login()
         {
+            ViewBag.ShowNavbar = false;
+
             return View();
         }
 
@@ -58,7 +60,7 @@ namespace DigitalCV.Web.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Dashboard");
                 }
                 else
                 {
