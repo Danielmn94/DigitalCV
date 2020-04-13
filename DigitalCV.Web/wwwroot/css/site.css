@@ -101,3 +101,23 @@ body {
 	list-style: none;
 	margin-left: -40px
 }
+
+/* Center nav links in navigation bar */
+
+.topnav-centered {
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 991px) {
+	.topnav-centered {
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: none;
+	}
+}

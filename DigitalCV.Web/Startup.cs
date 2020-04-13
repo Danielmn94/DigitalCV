@@ -61,9 +61,9 @@ namespace DigitalCV.Web
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
 
-                options.LoginPath = $"/Account/Login";
-                options.LogoutPath = $"/Account/Logout";
-                options.AccessDeniedPath = $"/Account/AccessDenied";
+                options.LoginPath = $"/Identity/Login";
+                options.LogoutPath = $"/Identity/Logout";
+                options.AccessDeniedPath = $"/Identity/AccessDenied";
             });
 
             services.AddControllersWithViews();
@@ -96,7 +96,7 @@ namespace DigitalCV.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Login}/{id?}");
+                    pattern: "{controller=Identity}/{action=Login}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
