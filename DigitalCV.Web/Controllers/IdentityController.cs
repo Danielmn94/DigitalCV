@@ -2,7 +2,7 @@
 using AutoMapper;
 using DigitalCV.DTO.DTOs;
 using DigitalCV.Service.Interfaces;
-using DigitalCV.Web.Models.Account;
+using DigitalCV.Web.Models.ViewModels.Account;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,6 +35,7 @@ namespace DigitalCV.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            ViewBag.ShowNavbar = false;
 
             if (ModelState.IsValid)
             {

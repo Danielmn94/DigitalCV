@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DigitalCV.Data\DigitalCV.Data.csproj" />
     <ProjectReference Include="..\DigitalCV.DTO\DigitalCV.DTO.csproj" />
   </ItemGroup>

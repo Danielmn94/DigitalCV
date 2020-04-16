@@ -4,14 +4,16 @@ using DigitalCV.Data.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DigitalCV.Data.Domain.Migrations
 {
     [DbContext(typeof(DigitalCVContext))]
-    partial class DigitalCVContextSnapshot : ModelSnapshot
+    [Migration("20200414175609_Changed Updated to allow null, for education model")]
+    partial class ChangedUpdatedtoallownullforeducationmodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,7 +94,7 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<DateTime>("Added")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("Updated")
+                    b.Property<DateTime>("Updated")
                         .HasColumnType("datetime2");
 
                     b.HasKey("CertificateName");
@@ -133,7 +135,7 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<string>("ITSkills")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Updated")
+                    b.Property<DateTime>("Updated")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ITGroup");
@@ -152,7 +154,7 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<string>("LevelOfLanguage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Updated")
+                    b.Property<DateTime>("Updated")
                         .HasColumnType("datetime2");
 
                     b.HasKey("LanguageCode");
@@ -179,7 +181,7 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<string>("TimePeriod")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Updated")
+                    b.Property<DateTime>("Updated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("WorkingAs")

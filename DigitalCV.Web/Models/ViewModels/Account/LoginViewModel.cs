@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitalCV.Web.Models.Account
+namespace DigitalCV.Web.Models.ViewModels.Account
 {
     public class LoginViewModel
     {

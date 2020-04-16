@@ -1,4 +1,33 @@
-﻿<h6>Education</h6>
+﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.Education.EducationViewModel>
+
+<div class="jumbotron boxcolor whitefont">
+	<div class="row" style="font-size:18px; color:#01A1BB; border-bottom: 1px solid #01a1bb">
+		<div class="col-3">
+			År
+		</div>
+		<div class="col-5">
+			Uddannelse
+		</div>
+		<div class="col-4">
+			Skole
+		</div>
+	</div>
+
+	@foreach (var education in Model)
+	{
+	<div class="row">
+		<div class="col-3">
+			@education.TimePeriod
+		</div>
+		<div class="col-5">
+			@education.NameOfEducation
+		</div>
+		<div class="col-4">@education.School</div>
+	</div>
+	}
+</div>
+
+
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
