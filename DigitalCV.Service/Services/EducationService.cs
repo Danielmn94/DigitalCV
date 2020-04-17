@@ -26,7 +26,9 @@ namespace DigitalCV.Service.Services
         {
             var educations = _educationRepository.GetEducations();
 
-            return _mapper.Map<List<EducationDTO>>(educations);
+            var orderedList = educations.OrderByDescending(x => x.TimePeriod);
+
+            return _mapper.Map<List<EducationDTO>>(orderedList);
         }
     }
 }

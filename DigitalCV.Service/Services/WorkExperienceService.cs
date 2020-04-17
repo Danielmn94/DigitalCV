@@ -25,9 +25,9 @@ namespace DigitalCV.Service.Services
         {
             var workExperiences = _workRepository.GetWorkExperiences();
 
-           var convertedModel = _mapper.Map<List<WorkExperienceDTO>>(workExperiences);
+            var orderedWorkExperiences = workExperiences.OrderByDescending(x => x.TimePeriod);
 
-            return convertedModel;
+            return _mapper.Map<List<WorkExperienceDTO>>(orderedWorkExperiences);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace DigitalCV.Web
         {
             services.AddDbContext<DigitalCVContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DigitalCVConnection")));
 
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
@@ -51,6 +51,11 @@ namespace DigitalCV.Web
             services.AddTransient<IEducationService, EducationService>();
             services.AddTransient<IWorkExperienceRepository, WorkExperienceRepository>();
             services.AddTransient<IWorkExperienceService, WorkExperienceService>();
+            services.AddTransient<IComputerTechnologyRepository, ComputerTechnologyRepository>();
+            services.AddTransient<IComputerTechnologyService, ComputerTechnologyService>();
+            services.AddTransient<ILanguageRepository, LanguageRepository>();
+            services.AddTransient<ICertificateRepository, CertificateRepository>();
+            services.AddTransient<IMiscellaneousInfoService, MiscellaneousInfoService>();
 
             services.ConfigureApplicationCookie(options =>
             {
