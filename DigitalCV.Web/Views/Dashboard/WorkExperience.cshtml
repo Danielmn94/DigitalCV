@@ -1,4 +1,36 @@
-﻿<h6>Work experience</h6>
+﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.WorkExperience.WorkExperienceViewModel>
+
+<div class="jumbotron boxcolor whitefont">
+	<div class="row" style="font-size:18px; color:#01A1BB; border-bottom: 1px solid #01a1bb">
+		<div class="col-4">
+			År
+		</div>
+		<div class="col-8">
+			Arbejdsplads
+		</div>
+	</div>
+
+	<div class="row">
+		@foreach (var workExp in Model)
+		{
+			<div class="col-4">
+				@workExp.TimePeriod
+			</div>
+			<div class="col-8">
+				@workExp.NameOfCompany<br />
+				<a style="font-size:14px">@workExp.WorkingAs</a>
+				<br /> <br />
+				<ul style="list-style-type:disc; font-size:13px">
+
+					@foreach (var keyArea in workExp.KeyAreasSplitted)
+					{
+						<li>@keyArea</li>
+					}
+				</ul>
+			</div>
+		}
+	</div>
+</div>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>

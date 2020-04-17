@@ -1,20 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DigitalCV.Data.Domain;
-using DigitalCV.Web.Models.Account;
 using DigitalCV.Data.Domain.Models;
-using Microsoft.AspNetCore.Http;
 using DigitalCV.Data.Interfaces;
 using DigitalCV.Data.Repositories;
 using DigitalCV.Service.Services;
@@ -37,7 +29,7 @@ namespace DigitalCV.Web
         {
             services.AddDbContext<DigitalCVContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DigitalCVConnection")));
 
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
@@ -55,6 +47,15 @@ namespace DigitalCV.Web
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<IEducationRepository, EducationRepository>();
+            services.AddTransient<IEducationService, EducationService>();
+            services.AddTransient<IWorkExperienceRepository, WorkExperienceRepository>();
+            services.AddTransient<IWorkExperienceService, WorkExperienceService>();
+            services.AddTransient<IComputerTechnologyRepository, ComputerTechnologyRepository>();
+            services.AddTransient<IComputerTechnologyService, ComputerTechnologyService>();
+            services.AddTransient<ILanguageRepository, LanguageRepository>();
+            services.AddTransient<ICertificateRepository, CertificateRepository>();
+            services.AddTransient<IMiscellaneousInfoService, MiscellaneousInfoService>();
 
             services.ConfigureApplicationCookie(options =>
             {

@@ -11,7 +11,7 @@ namespace DigitalCV.Data.Domain.Models
     {
         [Key]
         public int ID { get; set; }
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
         public DateTime Added { get; set; }
         public string TimePeriod { get; set; }
         public string NameOfCompany { get; set; }

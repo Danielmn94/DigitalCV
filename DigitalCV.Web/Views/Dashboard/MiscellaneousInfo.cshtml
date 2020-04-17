@@ -1,4 +1,51 @@
-﻿<h6>Miscellaneous information</h6>
+﻿@model DigitalCV.Web.Models.ViewModels.MiscellaneousInfo.MiscellaneousInfoViewModel
+
+	<div class="jumbotron boxcolor whitefont">
+
+		<div class="row">
+			<div class="col-5">
+				Certifikater
+			</div>
+			<div class="col-7">
+				<ul style="list-style-type:disc; font-size:13px">
+
+					@foreach (var certificate in Model.Certificates)
+					{
+						<li>@certificate.CertificateName</li>
+					}
+				</ul>
+			</div>
+		</div>
+
+		<div class="row" style="font-size:18px; color:#01A1BB; border-bottom: 1px solid #01a1bb">
+			<div class="col-5">
+				Sprog
+			</div>
+			<div class="col-7">
+
+			</div>
+		</div>
+
+		<br /> 
+
+		<div class="row">
+			@foreach (var item in Model.Languages)
+			{
+				<div class="col-5">
+
+					@item.Language
+
+				</div>
+				<div class="col-7">
+					<ul style="list-style-type:disc; font-size:13px">
+
+						<li>@item.LevelOfLanguage</li>
+					</ul>
+				</div>
+			}
+		</div>
+
+	</div>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>

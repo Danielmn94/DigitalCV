@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DigitalCV.Data.Domain.Models
 {
-    public class ITExperience
+    public class ComputerTechnology
     {
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
         public DateTime Added { get; set; }
         [Key]
         public string ITGroup { get; set; }

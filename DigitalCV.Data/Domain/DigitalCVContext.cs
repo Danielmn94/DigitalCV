@@ -14,6 +14,6 @@ namespace DigitalCV.Data.Domain
         public DbSet<WorkExperience> WorkExperiences { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Certificate> Certificates { get; set; }
-        public DbSet<ITExperience> ITExperiences { get; set; }
+        public DbSet<ComputerTechnology> ComputerTechnologies { get; set; }
     }
 }

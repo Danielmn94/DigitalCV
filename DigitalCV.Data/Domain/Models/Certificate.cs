@@ -9,7 +9,7 @@ namespace DigitalCV.Data.Domain.Models
 {
     public class Certificate
     {
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
         public DateTime Added { get; set; }
         [Key]
         public string CertificateName { get; set; }

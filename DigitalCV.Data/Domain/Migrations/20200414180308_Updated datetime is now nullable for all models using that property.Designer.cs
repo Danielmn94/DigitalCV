@@ -4,14 +4,16 @@ using DigitalCV.Data.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DigitalCV.Data.Domain.Migrations
 {
     [DbContext(typeof(DigitalCVContext))]
-    partial class DigitalCVContextSnapshot : ModelSnapshot
+    [Migration("20200414180308_Updated datetime is now nullable for all models using that property")]
+    partial class Updateddatetimeisnownullableforallmodelsusingthatproperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,25 +102,6 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.ToTable("Certificates");
                 });
 
-            modelBuilder.Entity("DigitalCV.Data.Domain.Models.ComputerTechnology", b =>
-                {
-                    b.Property<string>("ITGroup")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("Added")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ITSkills")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Updated")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("ITGroup");
-
-                    b.ToTable("ComputerTechnologies");
-                });
-
             modelBuilder.Entity("DigitalCV.Data.Domain.Models.Education", b =>
                 {
                     b.Property<string>("NameOfEducation")
@@ -139,6 +122,25 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.HasKey("NameOfEducation");
 
                     b.ToTable("Educations");
+                });
+
+            modelBuilder.Entity("DigitalCV.Data.Domain.Models.ITExperience", b =>
+                {
+                    b.Property<string>("ITGroup")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ITSkills")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ITGroup");
+
+                    b.ToTable("ITExperiences");
                 });
 
             modelBuilder.Entity("DigitalCV.Data.Domain.Models.Language", b =>
