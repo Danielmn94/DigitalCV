@@ -12,6 +12,7 @@ using DigitalCV.Data.Repositories;
 using DigitalCV.Service.Services;
 using DigitalCV.Service.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 
 namespace DigitalCV.Web
 {
@@ -56,6 +57,20 @@ namespace DigitalCV.Web
             services.AddTransient<ILanguageRepository, LanguageRepository>();
             services.AddTransient<ICertificateRepository, CertificateRepository>();
             services.AddTransient<IMiscellaneousInfoService, MiscellaneousInfoService>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
+            });
 
             services.ConfigureApplicationCookie(options =>
             {

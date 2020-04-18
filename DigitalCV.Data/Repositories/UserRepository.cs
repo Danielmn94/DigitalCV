@@ -23,5 +23,20 @@ namespace DigitalCV.Data.Repositories
         {
             return await _userManager.CheckPasswordAsync(user, password);
         }
+
+        public ApplicationUser CreateApplicationUser(string username)
+        {
+            return new ApplicationUser { UserName = username };
+        }
+
+        public Task<IdentityResult> CreateUser(ApplicationUser user, string password)
+        {
+            return _userManager.CreateAsync(user, password);
+        }
+
+        public Task<ApplicationUser> GetUserByUsername(string username)
+        {
+            return _userManager.FindByNameAsync(username);
+        }
     }
 }

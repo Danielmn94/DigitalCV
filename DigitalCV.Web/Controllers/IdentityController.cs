@@ -2,8 +2,9 @@
 using AutoMapper;
 using DigitalCV.DTO.DTOs;
 using DigitalCV.Service.Interfaces;
-using DigitalCV.Web.Models.ViewModels.Account;
+using DigitalCV.Web.Models.ViewModels.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalCV.Web.Controllers
@@ -57,7 +58,7 @@ namespace DigitalCV.Web.Controllers
 
                 var convertedModel = _mapper.Map<LoginDTO>(model);
 
-                var result = await _accountService.Login(convertedModel);
+                var result = await _accountService.LoginPassword(convertedModel);
 
                 if (result.Succeeded)
                 {
@@ -77,6 +78,56 @@ namespace DigitalCV.Web.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public IActionResult Register()
+        {
+            ViewBag.ShowNavbar = false;
+
+            return View();
+        }
+
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            ViewBag.ShowNavbar = false;
+
+            if (ModelState.IsValid)
+            {
+                var user = await _userService.GetUserByUsername(model.Username);
+
+                if (user != null)
+                {
+                    ModelState.AddModelError(string.Empty, "Brugernavn er taget");
+                    return View(model);
+                }
+
+                var applicationUser = _userService.CreateApplicationUser(model.Username);
+
+                var result = _userService.CreateUser(applicationUser, model.Password);
+
+                if (result.Result.Succeeded)
+                {
+                    await _accountService.Login(applicationUser);
+
+                    return RedirectToAction("Index","Dashboard");
+                }
+                AddErrors(result.Result);
+            }
+
+            return View(model);
+        }
+
+        private void AddErrors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
         }
     }
 }

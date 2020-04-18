@@ -1,4 +1,5 @@
-﻿using DigitalCV.Data.Interfaces;
+﻿using DigitalCV.Data.Domain.Models;
+using DigitalCV.Data.Interfaces;
 using DigitalCV.DTO.DTOs;
 using DigitalCV.Service.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -15,9 +16,14 @@ namespace DigitalCV.Service.Services
             _accountRepository = accountRepository;
         }
 
-        public async Task<SignInResult> Login(LoginDTO model)
+        public async Task<SignInResult> LoginPassword(LoginDTO model)
         {
-            return await _accountRepository.Login(model);
+            return await _accountRepository.LoginPassword(model);
+        }
+
+        public Task Login(ApplicationUser appUser)
+        {
+            return _accountRepository.Login(appUser);
         }
     }
 }
