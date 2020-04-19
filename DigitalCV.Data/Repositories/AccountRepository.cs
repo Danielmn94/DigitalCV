@@ -17,7 +17,7 @@ namespace DigitalCV.Data.Repositories
 
         public async Task<SignInResult> LoginPassword(LoginDTO model)
         {
-            return await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+            return await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
         }
 
         public async Task Login(ApplicationUser user)

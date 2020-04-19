@@ -40,11 +40,11 @@ namespace DigitalCV.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = await _userService.GetUserByEmail(model.Email);
+                var user = await _userService.GetUserByUsername(model.Username);
 
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "Mail findes ikke");
+                    ModelState.AddModelError(string.Empty, "Brugernavn findes ikke");
                     return View(model);
                 }
 
