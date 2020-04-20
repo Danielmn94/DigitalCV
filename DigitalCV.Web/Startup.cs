@@ -42,7 +42,8 @@ namespace DigitalCV.Web
             services.AddSingleton(mapper);
 
             services.AddDefaultIdentity<ApplicationUser>()
-            .AddEntityFrameworkStores<DigitalCVContext>();
+            .AddEntityFrameworkStores<DigitalCVContext>()
+            .AddErrorDescriber<CustomIdentityErrorDescriber>();
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
