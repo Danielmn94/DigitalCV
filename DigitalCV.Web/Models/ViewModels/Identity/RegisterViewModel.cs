@@ -9,19 +9,19 @@ namespace DigitalCV.Web.Models.ViewModels.Identity
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Brugernavn er påkrævet")]
         [Display(Name = "Username")]
         public string Username { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Adgangskode er påkrævet")]
+        [StringLength(100, ErrorMessage = "Adgangskoden skal minimum være {2} karaktere lang", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Adgangskoden og bekræftelsesadgangskoden stemmer ikke overens")]
         public string ConfirmPassword { get; set; }
     }
 }

@@ -9,10 +9,10 @@ namespace DigitalCV.Web.Models.ViewModels.Identity
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Brugernavn er påkrævet")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Adgangskode er påkrævet")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
