@@ -10,9 +10,12 @@ namespace DigitalCV.Data.Domain.Models
     public class ComputerTechnology
     {
         public DateTime? Updated { get; set; }
+
         public DateTime Added { get; set; }
+
         [Key]
         public string ITGroup { get; set; }
+
         public string ITSkills { get; set; }
     }
 }

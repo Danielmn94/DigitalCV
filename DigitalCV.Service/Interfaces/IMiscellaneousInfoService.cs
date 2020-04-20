@@ -10,6 +10,7 @@ namespace DigitalCV.Service.Interfaces
     public interface IMiscellaneousInfoService
     {
         List<LanguageDTO> GetLanguages();
+
         List<CertificateDTO> GetCertificate();
     }
 }

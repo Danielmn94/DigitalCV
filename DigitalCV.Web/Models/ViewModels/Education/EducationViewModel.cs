@@ -10,7 +10,9 @@ namespace DigitalCV.Web.Models.ViewModels.Education
     public class EducationViewModel
     {
         public string TimePeriod { get; set; }
+
         public string NameOfEducation { get; set; }
+
         public string School { get; set; }
     }
 }

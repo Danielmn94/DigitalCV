@@ -9,6 +9,7 @@ namespace DigitalCV.Web.Models.ViewModels.ComputerTechnology
     public class ComputerTechnologyViewModel
     {
         public string ITGroup { get; set; }
+
         public string[] ITSkillsSplitted { get; set; }
     }
 }

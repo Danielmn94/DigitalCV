@@ -11,11 +11,17 @@ namespace DigitalCV.Data.Domain.Models
     {
         [Key]
         public int ID { get; set; }
+
         public DateTime? Updated { get; set; }
+
         public DateTime Added { get; set; }
+
         public string TimePeriod { get; set; }
+
         public string NameOfCompany { get; set; }
+
         public string WorkingAs { get; set; }
+
         public string KeyAreas { get; set; }
     }
 }

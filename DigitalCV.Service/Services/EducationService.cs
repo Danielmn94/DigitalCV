@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
-using DigitalCV.Data.Domain.Models;
 using DigitalCV.Data.Interfaces;
 using DigitalCV.DTO.DTOs;
 using DigitalCV.Service.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DigitalCV.Service.Services
 {

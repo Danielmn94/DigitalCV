@@ -9,6 +9,7 @@ namespace DigitalCV.DTO.DTOs
     public class LanguageDTO
     {
         public string Language { get; set; }
+
         public string LevelOfLanguage { get; set; }
     }
 }
