@@ -10,5 +10,7 @@ namespace DigitalCV.Data.Interfaces
         Task<SignInResult> LoginPassword(LoginDTO model);
 
         Task Login(ApplicationUser user);
+
+        void LogOut();
     }
 }
