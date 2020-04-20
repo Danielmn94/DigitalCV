@@ -30,14 +30,14 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public IActionResult Education()
         {
             var educations = _educationService.GetEducations();
@@ -48,7 +48,7 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public IActionResult WorkExperience()
         {
             var workExperiences = _workExperienceService.GetWorkExperiences();
@@ -59,7 +59,7 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public IActionResult ComputerTechnology()
         {
             var computerTechnologies = _computerTechnologyService.GetWorkExperiences();
@@ -70,7 +70,7 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public IActionResult MiscellaneousInfo()
         {
             MiscellaneousInfoViewModel vm = new MiscellaneousInfoViewModel();
