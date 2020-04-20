@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.Education.EducationViewModel>
 
+@{
+	ViewData["Title"] = "Uddannelser";
+}
+
 <div class="jumbotron boxcolor whitefont">
 	<div class="row" style="font-size:18px; color:#01A1BB; border-bottom: 1px solid #01a1bb">
 		<div class="col-3">
@@ -15,15 +19,15 @@
 
 	@foreach (var education in Model)
 	{
-	<div class="row">
-		<div class="col-3">
-			@education.TimePeriod
+		<div class="row">
+			<div class="col-3">
+				@education.TimePeriod
+			</div>
+			<div class="col-5">
+				@education.NameOfEducation
+			</div>
+			<div class="col-4">@education.School</div>
 		</div>
-		<div class="col-5">
-			@education.NameOfEducation
-		</div>
-		<div class="col-4">@education.School</div>
-	</div>
 	}
 </div>
 

@@ -8,6 +8,7 @@ namespace DigitalCV.Data.Interfaces
     public interface IAccountRepository
     {
         Task<SignInResult> LoginPassword(LoginDTO model);
+
         Task Login(ApplicationUser user);
     }
 }

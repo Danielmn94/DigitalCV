@@ -74,14 +74,15 @@ namespace DigitalCV.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         [AllowAnonymous]
         public IActionResult AccessDenied()
         {
             return View();
         }
 
-        [AllowAnonymous]
         [HttpGet]
+        [Authorize(Roles = "admin")]
         public IActionResult Register()
         {
             ViewBag.ShowNavbar = false;
@@ -89,9 +90,8 @@ namespace DigitalCV.Web.Controllers
             return View();
         }
 
-
-        [AllowAnonymous]
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             ViewBag.ShowNavbar = false;

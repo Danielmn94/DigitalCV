@@ -121,3 +121,9 @@ body {
 		transform: none;
 	}
 }
+
+/* Center content */
+.center {
+	display: flex;
+	justify-content: center;
+}

@@ -9,7 +9,9 @@ namespace DigitalCV.DTO.DTOs
     public class EducationDTO
     {
         public string TimePeriod { get; set; }
+
         public string NameOfEducation { get; set; }
+
         public string School { get; set; }
     }
 }

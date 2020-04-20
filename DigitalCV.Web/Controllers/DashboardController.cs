@@ -4,6 +4,7 @@ using DigitalCV.Web.Models.ViewModels.ComputerTechnology;
 using DigitalCV.Web.Models.ViewModels.Education;
 using DigitalCV.Web.Models.ViewModels.MiscellaneousInfo;
 using DigitalCV.Web.Models.ViewModels.WorkExperience;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -29,18 +30,16 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Index()
         {
-            ViewBag.Title = "Forside";
-
             return View();
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Education()
         {
-            ViewBag.Title = "Uddannelser";
-
             var educations = _educationService.GetEducations();
 
             var convertedEducations = _mapper.Map<List<EducationViewModel>>(educations);
@@ -49,10 +48,9 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult WorkExperience()
         {
-            ViewBag.Title = "Erhverserfaring";
-
             var workExperiences = _workExperienceService.GetWorkExperiences();
 
             var convertedWorkExperiences = _mapper.Map<List<WorkExperienceViewModel>>(workExperiences);
@@ -61,10 +59,9 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult ComputerTechnology()
         {
-            ViewBag.Title = "IT";
-
             var computerTechnologies = _computerTechnologyService.GetWorkExperiences();
 
             var convertedComputerTechnologies = _mapper.Map<List<ComputerTechnologyViewModel>>(computerTechnologies);
@@ -73,10 +70,9 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult MiscellaneousInfo()
         {
-            ViewBag.Title = "Andet information";
-
             MiscellaneousInfoViewModel vm = new MiscellaneousInfoViewModel();
 
             vm.Certificates = _miscellaneousInfoService.GetCertificate();

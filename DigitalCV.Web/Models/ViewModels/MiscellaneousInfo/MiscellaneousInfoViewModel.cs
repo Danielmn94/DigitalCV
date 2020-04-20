@@ -10,6 +10,7 @@ namespace DigitalCV.Web.Models.ViewModels.MiscellaneousInfo
     public class MiscellaneousInfoViewModel
     {
         public List<LanguageDTO> Languages { get; set; }
+
         public List<CertificateDTO> Certificates { get; set; }
     }
 }
