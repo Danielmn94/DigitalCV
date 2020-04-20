@@ -24,5 +24,10 @@ namespace DigitalCV.Data.Repositories
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
         }
+
+        public async void LogOut()
+        {
+            await _signInManager.SignOutAsync();
+        }
     }
 }

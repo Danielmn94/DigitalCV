@@ -129,5 +129,12 @@ namespace DigitalCV.Web.Controllers
                 ModelState.AddModelError(string.Empty, error.Description);
             }
         }
+
+        public IActionResult LogOut()
+        {
+            _accountService.LogOut();
+
+            return RedirectToAction("Login", "Identity");
+        }
     }
 }

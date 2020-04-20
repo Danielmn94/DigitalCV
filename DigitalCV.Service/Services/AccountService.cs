@@ -25,5 +25,10 @@ namespace DigitalCV.Service.Services
         {
             return _accountRepository.Login(appUser);
         }
+
+        public void LogOut()
+        {
+            _accountRepository.LogOut();
+        }
     }
 }
