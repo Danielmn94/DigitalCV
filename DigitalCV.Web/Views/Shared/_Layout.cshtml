@@ -18,19 +18,18 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<div class="navbar-nav topnav-centered">
+					<div class="navbar-nav">
 						<a class="nav-item education nav-link" asp-controller="Dashboard" asp-action="Education">Uddannelser</a>
 						<a class="nav-item workexp nav-link" asp-controller="Dashboard" asp-action="WorkExperience">Erhvervserfaring</a>
 						<a class="nav-item itexp nav-link" asp-controller="Dashboard" asp-action="ComputerTechnology">IT</a>
 						<a class="nav-item misc nav-link" asp-controller="Dashboard" asp-action="MiscellaneousInfo">Andet information</a>
-						<div class="dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Bruger: @this.User.Identity.Name
-							</a>
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-								<a class="dropdown-item" asp-controller="Identity" asp-action="LogOut"> Log ud</a>
-							</div>
-						</div>
+
+						@if (this.User.IsInRole("admin"))
+						{
+							<a class="nav-item nav-link" asp-controller="Admin" asp-action="Education">Admin panel</a>
+						}
+
+						<a class="nav-item nav-link" asp-controller="Identity" asp-action="LogOut">Log ud</a>
 					</div>
 				</div>
 			</nav>

@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using DigitalCV.Service.Interfaces;
 using DigitalCV.Web.Models.ViewModels.ComputerTechnology;
-using DigitalCV.Web.Models.ViewModels.Education;
-using DigitalCV.Web.Models.ViewModels.MiscellaneousInfo;
 using DigitalCV.Web.Models.ViewModels.WorkExperience;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,45 +8,35 @@ using System.Collections.Generic;
 
 namespace DigitalCV.Web.Controllers
 {
-
-    public class DashboardController : Controller
+    [Authorize]
+    public class DashboardController : BaseController
     {
-        private readonly IEducationService _educationService;
-        private readonly IWorkExperienceService _workExperienceService;
-        private readonly IComputerTechnologyService _computerTechnologyService;
-        private readonly IMiscellaneousInfoService _miscellaneousInfoService;
         private readonly IMapper _mapper;
+        private readonly IComputerTechnologyService _computerTechnologyService;
+        private readonly IWorkExperienceService _workExperienceService;
 
         public DashboardController(IEducationService educationService, IWorkExperienceService workExperienceService, 
-            IComputerTechnologyService computerTechnologyService, IMiscellaneousInfoService miscellaneousInfoService, IMapper mapper)
+            IComputerTechnologyService computerTechnologyService, ILangaugeService miscellaneousInfoService, IMapper mapper, ICertificateService certificateService) 
+            : base(educationService,miscellaneousInfoService, mapper, certificateService)
         {
-            _educationService = educationService;
-            _workExperienceService = workExperienceService;
-            _computerTechnologyService = computerTechnologyService;
-            _miscellaneousInfoService = miscellaneousInfoService;
             _mapper = mapper;
+            _computerTechnologyService = computerTechnologyService;
+            _workExperienceService = workExperienceService;
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult Education()
         {
-            var educations = _educationService.GetEducations();
-
-            var convertedEducations = _mapper.Map<List<EducationViewModel>>(educations);
-
-            return View(convertedEducations);
+            return View(GetEducations());
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult WorkExperience()
         {
             var workExperiences = _workExperienceService.GetWorkExperiences();
@@ -59,10 +47,9 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult ComputerTechnology()
         {
-            var computerTechnologies = _computerTechnologyService.GetWorkExperiences();
+            var computerTechnologies = _computerTechnologyService.GetComputerTechnologies();
 
             var convertedComputerTechnologies = _mapper.Map<List<ComputerTechnologyViewModel>>(computerTechnologies);
 
@@ -70,16 +57,9 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult MiscellaneousInfo()
         {
-            MiscellaneousInfoViewModel vm = new MiscellaneousInfoViewModel();
-
-            vm.Certificates = _miscellaneousInfoService.GetCertificate();
-
-            vm.Languages = _miscellaneousInfoService.GetLanguages();
-
-            return View(vm);
+            return View(GetMiscellaneousInfo());
         }
     }
 }

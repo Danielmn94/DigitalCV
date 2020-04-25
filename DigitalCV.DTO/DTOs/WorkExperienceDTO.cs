@@ -8,12 +8,14 @@ namespace DigitalCV.DTO.DTOs
 {
     public class WorkExperienceDTO
     {
+        public int Id { get; set; }
+
         public string TimePeriod { get; set; }
 
         public string NameOfCompany { get; set; }
 
         public string WorkingAs { get; set; }
 
-        public string[] KeyAreasSplitted { get; set; }
+        public string KeyAreas { get; set; }
     }
 }

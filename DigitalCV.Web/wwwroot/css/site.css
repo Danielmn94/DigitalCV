@@ -127,3 +127,11 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
+.highlightfont {
+	color:Highlight;
+}
+
+.redfont {
+	color:red;
+}
