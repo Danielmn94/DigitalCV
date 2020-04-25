@@ -49,7 +49,12 @@ namespace DigitalCV.Service.Services
 
         public void UpdateCertificate(CertificateDTO model)
         {
+            var added = _genericRepository.GetAdded(model.Id);
+
             var convertedModel = _mapper.Map<Certificate>(model);
+
+            convertedModel.Updated = DateTime.Now;
+            convertedModel.Added = added;
 
             _genericRepository.Update(convertedModel);
         }

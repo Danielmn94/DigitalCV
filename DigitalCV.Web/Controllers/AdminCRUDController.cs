@@ -84,7 +84,6 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("Education", "Admin");
         }
 
-        [HttpPost]
         public IActionResult DeleteEducation(EducationViewModel model)
         {
             _educationService.DeleteEducation(model.Id);
@@ -140,7 +139,6 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("WorkExperience", "Admin");
         }
 
-        [HttpPost]
         public IActionResult DeleteWorkExperience(AdminWorkExperienceViewModel model)
         {
             _workExperienceService.DeleteWorkExperience(model.Id);
@@ -198,7 +196,6 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("ComputerTechnology", "Admin");
         }
 
-        [HttpPost]
         public IActionResult DeleteComputerTechnology(AdminComputerTechnologyViewModel model)
         {
             _computerTechnologyService.DeleteComputerTechnology(model.Id);
@@ -255,7 +252,6 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("MiscellaneousInfo", "Admin");
         }
 
-        [HttpPost]
         public IActionResult DeleteLanguage(LanguageViewModel model)
         {
             _langaugeService.DeleteLanguage(model.Id);
@@ -311,7 +307,6 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("MiscellaneousInfo", "Admin");
         }
 
-        [HttpPost]
         public IActionResult DeleteCertificate(CertificateViewModel model)
         {
             _certificateService.DeleteCertificate(model.Id);

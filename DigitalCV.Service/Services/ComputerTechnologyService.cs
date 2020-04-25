@@ -47,7 +47,12 @@ namespace DigitalCV.Service.Services
 
         public void UpdateComputerTechnology(ComputerTechnologyDTO model)
         {
+            var added = _genericRepository.GetAdded(model.Id);
+
             var convertedModel = _mapper.Map<ComputerTechnology>(model);
+
+            convertedModel.Updated = DateTime.Now;
+            convertedModel.Added = added;
 
             _genericRepository.Update(convertedModel);
         }

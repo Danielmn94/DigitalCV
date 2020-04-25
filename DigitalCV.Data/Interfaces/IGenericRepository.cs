@@ -11,6 +11,8 @@ namespace DigitalCV.Data.Interfaces
     {
         IEnumerable<T> GetAll();
 
+        DateTime GetAdded(int id);
+
         T GetById(int id);
 
         void Create(T entity);

@@ -1,5 +1,9 @@
 ﻿@model DigitalCV.Web.Models.ViewModels.MiscellaneousInfo.MiscellaneousInfoViewModel
 
+@{
+	ViewData["Title"] = "Ændre andre information";
+}
+
 <nav class="navbar navbar-expand-lg navbar-light">
 	<a class="navbar-brand" asp-controller="Dashboard" asp-action="Index">Digital CV</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,12 +54,12 @@
 	<tbody>
 		@foreach (var langauge in Model.Languages)
 		{
-		<tr>
-			<td>@langauge.LanguageText</td>
-			<td>@langauge.LevelOfLanguage</td>
-			<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="CreateUpdateLanguage"><i class="highlightfont fas fa-pen"></i></a></td>
-			<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="DeleteLanguage"><i class="redfont fas fa-trash-alt"></i></a></td>
-		</tr>
+			<tr>
+				<td>@langauge.LanguageText</td>
+				<td>@langauge.LevelOfLanguage</td>
+				<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="CreateUpdateLanguage"><i class="highlightfont fas fa-pen"></i></a></td>
+				<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="DeleteLanguage"><i class="redfont fas fa-trash-alt"></i></a></td>
+			</tr>
 		}
 	</tbody>
 </table>

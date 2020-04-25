@@ -40,6 +40,11 @@ namespace DigitalCV.Data.Repositories
             return _entities.AsEnumerable();
         }
 
+        public DateTime GetAdded(int id)
+        {
+            return _entities.Where(s => s.Id == id).Select(s => s.Added).FirstOrDefault();
+        }
+
         public T GetById(int id)
         {
             return _entities.SingleOrDefault(s => s.Id == id);

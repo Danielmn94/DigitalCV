@@ -47,7 +47,12 @@ namespace DigitalCV.Service.Services
 
         public void UpdateLanguage(LanguageDTO model)
         {
+            var added = _genericRepository.GetAdded(model.Id);
+
             var convertedModel = _mapper.Map<Language>(model);
+
+            convertedModel.Updated = DateTime.Now;
+            convertedModel.Added = added;
 
             _genericRepository.Update(convertedModel);
         }
