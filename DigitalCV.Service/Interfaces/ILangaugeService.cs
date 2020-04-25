@@ -7,10 +7,16 @@ using System.Threading.Tasks;
 
 namespace DigitalCV.Service.Interfaces
 {
-    public interface IMiscellaneousInfoService
+    public interface ILangaugeService
     {
         List<LanguageDTO> GetLanguages();
 
-        List<CertificateDTO> GetCertificate();
+        LanguageDTO GetLanguageFromID(int id);
+
+        void CreateLanguage(LanguageDTO model);
+
+        void UpdateLanguage(LanguageDTO model);
+
+        void DeleteLanguage(int id);
     }
 }

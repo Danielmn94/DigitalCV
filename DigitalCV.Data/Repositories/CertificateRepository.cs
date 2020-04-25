@@ -1,6 +1,7 @@
 ﻿using DigitalCV.Data.Domain;
 using DigitalCV.Data.Domain.Models;
 using DigitalCV.Data.Interfaces;
+using DigitalCV.DTO.DTOs;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,9 +16,9 @@ namespace DigitalCV.Data.Repositories
             _context = context;
         }
 
-        public List<Certificate> GetCertificates()
+        List<CertificateDTO> ICertificateRepository.GetCertificates()
         {
-            return _context.Certificates.ToList();
+            throw new System.NotImplementedException();
         }
     }
 }

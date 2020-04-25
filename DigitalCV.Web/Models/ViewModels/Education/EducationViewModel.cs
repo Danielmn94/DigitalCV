@@ -9,6 +9,14 @@ namespace DigitalCV.Web.Models.ViewModels.Education
 {
     public class EducationViewModel
     {
+        public string AspController { get; set; }
+
+        public string AspAction { get; set; }
+
+        public string ButttonText { get; set; }
+
+        public int Id { get; set; }
+
         public string TimePeriod { get; set; }
 
         public string NameOfEducation { get; set; }

@@ -86,27 +86,37 @@ namespace DigitalCV.Data.Domain.Migrations
 
             modelBuilder.Entity("DigitalCV.Data.Domain.Models.Certificate", b =>
                 {
-                    b.Property<string>("CertificateName")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Added")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CertificateName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("CertificateName");
+                    b.HasKey("Id");
 
                     b.ToTable("Certificates");
                 });
 
             modelBuilder.Entity("DigitalCV.Data.Domain.Models.ComputerTechnology", b =>
                 {
-                    b.Property<string>("ITGroup")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Added")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ITGroup")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ITSkills")
                         .HasColumnType("nvarchar(max)");
@@ -114,18 +124,23 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ITGroup");
+                    b.HasKey("Id");
 
                     b.ToTable("ComputerTechnologies");
                 });
 
             modelBuilder.Entity("DigitalCV.Data.Domain.Models.Education", b =>
                 {
-                    b.Property<string>("NameOfEducation")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Added")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("NameOfEducation")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("School")
                         .HasColumnType("nvarchar(max)");
@@ -136,18 +151,23 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("NameOfEducation");
+                    b.HasKey("Id");
 
                     b.ToTable("Educations");
                 });
 
             modelBuilder.Entity("DigitalCV.Data.Domain.Models.Language", b =>
                 {
-                    b.Property<string>("LanguageCode")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Added")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("LanguageText")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LevelOfLanguage")
                         .HasColumnType("nvarchar(max)");
@@ -155,14 +175,14 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<DateTime?>("Updated")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("LanguageCode");
+                    b.HasKey("Id");
 
                     b.ToTable("Languages");
                 });
 
             modelBuilder.Entity("DigitalCV.Data.Domain.Models.WorkExperience", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -185,7 +205,7 @@ namespace DigitalCV.Data.Domain.Migrations
                     b.Property<string>("WorkingAs")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("WorkExperiences");
                 });

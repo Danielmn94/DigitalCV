@@ -33,17 +33,17 @@
 	<br />
 
 	<div class="row">
-		@foreach (var item in Model.Languages)
+		@foreach (var langauge in Model.Languages)
 		{
 			<div class="col-5">
 
-				@item.Language
+				@langauge.LanguageText
 
 			</div>
 			<div class="col-7">
 				<ul style="list-style-type:disc; font-size:13px">
 
-					<li>@item.LevelOfLanguage</li>
+					<li>@langauge.LevelOfLanguage</li>
 				</ul>
 			</div>
 		}

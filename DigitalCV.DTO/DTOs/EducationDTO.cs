@@ -8,6 +8,8 @@ namespace DigitalCV.DTO.DTOs
 {
     public class EducationDTO
     {
+        public int Id { get; set; }
+
         public string TimePeriod { get; set; }
 
         public string NameOfEducation { get; set; }

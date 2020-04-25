@@ -9,6 +9,14 @@ namespace DigitalCV.Service.Interfaces
 {
     public interface IComputerTechnologyService
     {
-        List<ComputerTechnologyDTO> GetWorkExperiences();
+        List<ComputerTechnologyDTO> GetComputerTechnologies();
+
+        ComputerTechnologyDTO GetComputerTechnologyFromID(int id);
+
+        void CreateComputerTechnology(ComputerTechnologyDTO model);
+
+        void UpdateComputerTechnology(ComputerTechnologyDTO model);
+
+        void DeleteComputerTechnology(int id);
     }
 }

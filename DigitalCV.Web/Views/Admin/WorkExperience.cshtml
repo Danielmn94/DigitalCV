@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.Admin.AdminWorkExperienceViewModel>
+
+@{
+	ViewData["Title"] = "Ændre erhvervserfaring";
+}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+	<a class="navbar-brand" asp-controller="Dashboard" asp-action="Index">Digital CV</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<a class="nav-item education nav-link" asp-controller="Admin" asp-action="Education">Ændre uddannelser</a>
+			<a class="nav-item education active nav-link" asp-controller="Admin" asp-action="WorkExperience">Ændre erhvervserfaring</a>
+			<a class="nav-item education nav-link" asp-controller="Admin" asp-action="ComputerTechnology">Ændre IT</a>
+			<a class="nav-item education nav-link" asp-controller="Admin" asp-action="MiscellaneousInfo">Ændre andre information</a>
+		</div>
+	</div>
+</nav>
+
+<table class="table table-dark">
+	<thead>
+		<tr>
+			<th scope="col">År</th>
+			<th scope="col">Arbejdsplads</th>
+			<th scope="col">Titel</th>
+			<th scope="col">Arbejdsområder</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var workExperience in Model)
+		{
+			<tr>
+				<td>@workExperience.TimePeriod</td>
+				<td>@workExperience.NameOfCompany</td>
+				<td>@workExperience.WorkingAs</td>
+				<td>@workExperience.KeyAreas</td>
+				<td><a asp-controller="AdminCRUD" asp-route-id="@workExperience.Id" asp-action="CreateUpdateWorkExperience"><i class="highlightfont fas fa-pen"></i></a></td>
+				<td><a asp-controller="AdminCRUD" asp-route-id="@workExperience.Id" asp-action="DeleteWorkExperience"><i class="redfont fas fa-trash-alt"></i></a></td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<a asp-controller="AdminCRUD" asp-action="CreateUpdateWorkExperience" class="loginbutton btn btn-primary" role="button">Tilføj en erhvervserfaring</a>

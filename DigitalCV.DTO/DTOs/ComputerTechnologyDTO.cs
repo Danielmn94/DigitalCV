@@ -8,8 +8,10 @@ namespace DigitalCV.DTO.DTOs
 {
     public class ComputerTechnologyDTO
     {
+        public int Id { get; set; }
+
         public string ITGroup { get; set; }
 
-        public string[] ITSkillsSplitted { get; set; }
+        public string ITSkills { get; set; }
     }
 }

@@ -58,7 +58,10 @@ namespace DigitalCV.Web
             services.AddTransient<IComputerTechnologyService, ComputerTechnologyService>();
             services.AddTransient<ILanguageRepository, LanguageRepository>();
             services.AddTransient<ICertificateRepository, CertificateRepository>();
-            services.AddTransient<IMiscellaneousInfoService, MiscellaneousInfoService>();
+            services.AddTransient<ILangaugeService, LanguageService>();
+            services.AddTransient<ICertificateService, CertificateService>();
+
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepositoy<>));
 
             services.Configure<IdentityOptions>(options =>
             {
