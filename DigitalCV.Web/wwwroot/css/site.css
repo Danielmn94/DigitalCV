@@ -45,6 +45,19 @@ body {
 	src: url(/fonts/Courgette-Regular.ttf);
 }
 
+@font-face {
+	font-family: Lato;
+	src: url(/fonts/Lato-Regular.ttf);
+}
+
+.latofont {
+	font-family: Lato;
+}
+
+.courgettefont {
+	font-family: Courgette;
+}
+
 /* Checkbox color */
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
 	background-color: #104F60;
@@ -76,7 +89,7 @@ body {
 	border-top: 1px white solid;
 }
 
-.loginbutton {
+.buttonstyle {
 	background-color: #01A1BB;
 	border-color: #01A1BB;
 }
@@ -122,12 +135,14 @@ body {
 	}
 }
 
+/* Padding for the button used to create new computer technology  */
 @media screen and (max-width: 533px) {
 	.itbutton {
 		margin-bottom: 10px;
 	}
 }
 
+/* Padding for button used to create new language */
 @media screen and (max-width: 320px) {
 	.miscbutton {
 		margin-bottom: 10px;
@@ -140,10 +155,32 @@ body {
 	justify-content: center;
 }
 
+/* Used in the admin panel, for tables. Showing delete and update in red and blue */
+
 .highlightfont {
 	color: Highlight;
 }
 
 .redfont {
 	color: red;
+}
+
+/* Removing default ul list style */
+
+.removeuldiscs {
+	list-style-type: disc;
+	font-size: 13px
+}
+
+/* Adds bottm for some rows */
+.rowbutton {
+	font-size: 18px;
+	color: #01A1BB;
+	border-bottom: 1px solid #01a1bb
+}
+
+/* Headline used on dashboard/index */
+.customheadline {
+	font-size: 2rem;
+	line-height: 1.2;
 }
