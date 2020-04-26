@@ -7,12 +7,12 @@
 <div class="jumbotron boxcolor whitefont">
 	@foreach (var computerTech in Model)
 	{
-		<div class="row">
+		<div class="row latofont">
 			<div class="col-5">
 				@computerTech.ITGroup
 			</div>
 			<div class="col-7">
-				<ul style="list-style-type:disc; font-size:13px">
+				<ul class="removeuldiscs">
 
 					@foreach (var itSkills in computerTech.ITSkillsSplitted)
 					{

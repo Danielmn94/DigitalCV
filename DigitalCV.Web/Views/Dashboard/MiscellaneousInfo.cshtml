@@ -6,12 +6,12 @@
 
 <div class="jumbotron boxcolor whitefont">
 
-	<div class="row">
+	<div class="row latofont">
 		<div class="col-5">
 			Certifikater
 		</div>
 		<div class="col-7">
-			<ul style="list-style-type:disc; font-size:13px">
+			<ul class="removeuldiscs">
 
 				@foreach (var certificate in Model.Certificates)
 				{
@@ -21,7 +21,7 @@
 		</div>
 	</div>
 
-	<div class="row" style="font-size:18px; color:#01A1BB; border-bottom: 1px solid #01a1bb">
+	<div class="row rowbutton">
 		<div class="col-5">
 			Sprog
 		</div>
@@ -32,7 +32,7 @@
 
 	<br />
 
-	<div class="row">
+	<div class="row latofont">
 		@foreach (var langauge in Model.Languages)
 		{
 			<div class="col-5">
@@ -41,7 +41,7 @@
 
 			</div>
 			<div class="col-7">
-				<ul style="list-style-type:disc; font-size:13px">
+				<ul class="removeuldiscs">
 
 					<li>@langauge.LevelOfLanguage</li>
 				</ul>

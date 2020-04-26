@@ -28,7 +28,7 @@
 				<th></th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="latofont">
 			@foreach (var certificate in Model.Certificates)
 			{
 				<tr>
@@ -43,7 +43,7 @@
 
 <br />
 
-<a asp-controller="AdminCRUD" asp-action="CreateUpdateCertificate" class="loginbutton btn btn-primary" role="button">Tilføj et certifikat</a>
+<a asp-controller="AdminCRUD" asp-action="CreateUpdateCertificate" class="buttonstyle btn btn-primary" role="button">Tilføj et certifikat</a>
 <br />
 
 <div class="table-responsive">
@@ -72,4 +72,4 @@
 
 <br />
 
-<a asp-controller="AdminCRUD" asp-action="CreateUpdateLanguage" class="miscbutton loginbutton btn btn-primary" role="button">Tilføj et sprog</a>
+<a asp-controller="AdminCRUD" asp-action="CreateUpdateLanguage" class="miscbutton buttonstyle btn btn-primary" role="button">Tilføj et sprog</a>
