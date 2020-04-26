@@ -19,49 +19,57 @@
 	</div>
 </nav>
 
-<table class="table table-dark">
-	<thead>
-		<tr>
-			<th scope="col">Certifikat</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var certificate in Model.Certificates)
-		{
+<div class="table-responsive">
+	<table class="table table-dark">
+		<thead>
 			<tr>
-				<td>@certificate.CertificateName</td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@certificate.Id" asp-action="CreateUpdateCertificate"><i class="highlightfont fas fa-pen"></i></a></td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@certificate.Id" asp-action="DeleteCertificate"><i class="redfont fas fa-trash-alt"></i></a></td>
+				<th scope="col">Certifikat</th>
+				<th></th>
+				<th></th>
 			</tr>
-		}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			@foreach (var certificate in Model.Certificates)
+			{
+				<tr>
+					<td>@certificate.CertificateName</td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@certificate.Id" asp-action="CreateUpdateCertificate"><i class="highlightfont fas fa-pen"></i></a></td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@certificate.Id" asp-action="DeleteCertificate"><i class="redfont fas fa-trash-alt"></i></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+<br />
 
 <a asp-controller="AdminCRUD" asp-action="CreateUpdateCertificate" class="loginbutton btn btn-primary" role="button">Tilføj et certifikat</a>
 <br />
 
-<table class="table table-dark">
-	<thead>
-		<tr>
-			<th scope="col">Sprog</th>
-			<th scope="col">Niveau af sprog</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var langauge in Model.Languages)
-		{
+<div class="table-responsive">
+	<table class="table table-dark">
+		<thead>
 			<tr>
-				<td>@langauge.LanguageText</td>
-				<td>@langauge.LevelOfLanguage</td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="CreateUpdateLanguage"><i class="highlightfont fas fa-pen"></i></a></td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="DeleteLanguage"><i class="redfont fas fa-trash-alt"></i></a></td>
+				<th scope="col">Sprog</th>
+				<th scope="col">Niveau af sprog</th>
+				<th></th>
+				<th></th>
 			</tr>
-		}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			@foreach (var langauge in Model.Languages)
+			{
+				<tr>
+					<td>@langauge.LanguageText</td>
+					<td>@langauge.LevelOfLanguage</td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="CreateUpdateLanguage"><i class="highlightfont fas fa-pen"></i></a></td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@langauge.Id" asp-action="DeleteLanguage"><i class="redfont fas fa-trash-alt"></i></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
 
-<a asp-controller="AdminCRUD" asp-action="CreateUpdateLanguage" class="loginbutton btn btn-primary" role="button">Tilføj et sprog</a>
+<br />
+
+<a asp-controller="AdminCRUD" asp-action="CreateUpdateLanguage" class="miscbutton loginbutton btn btn-primary" role="button">Tilføj et sprog</a>

@@ -19,30 +19,34 @@
 	</div>
 </nav>
 
-<table class="table table-dark">
-	<thead>
-		<tr>
-			<th scope="col">År</th>
-			<th scope="col">Arbejdsplads</th>
-			<th scope="col">Titel</th>
-			<th scope="col">Arbejdsområder</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var workExperience in Model)
-		{
+<div class="table-responsive">
+	<table class="table table-dark">
+		<thead>
 			<tr>
-				<td>@workExperience.TimePeriod</td>
-				<td>@workExperience.NameOfCompany</td>
-				<td>@workExperience.WorkingAs</td>
-				<td>@workExperience.KeyAreas</td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@workExperience.Id" asp-action="CreateUpdateWorkExperience"><i class="highlightfont fas fa-pen"></i></a></td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@workExperience.Id" asp-action="DeleteWorkExperience"><i class="redfont fas fa-trash-alt"></i></a></td>
+				<th scope="col">År</th>
+				<th scope="col">Arbejdsplads</th>
+				<th scope="col">Titel</th>
+				<th scope="col">Arbejdsområder</th>
+				<th></th>
+				<th></th>
 			</tr>
-		}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			@foreach (var workExperience in Model)
+			{
+				<tr>
+					<td>@workExperience.TimePeriod</td>
+					<td>@workExperience.NameOfCompany</td>
+					<td>@workExperience.WorkingAs</td>
+					<td>@workExperience.KeyAreas</td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@workExperience.Id" asp-action="CreateUpdateWorkExperience"><i class="highlightfont fas fa-pen"></i></a></td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@workExperience.Id" asp-action="DeleteWorkExperience"><i class="redfont fas fa-trash-alt"></i></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+<br />
 
 <a asp-controller="AdminCRUD" asp-action="CreateUpdateWorkExperience" class="loginbutton btn btn-primary" role="button">Tilføj en erhvervserfaring</a>

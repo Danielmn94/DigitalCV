@@ -122,6 +122,18 @@ body {
 	}
 }
 
+@media screen and (max-width: 533px) {
+	.itbutton {
+		margin-bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.miscbutton {
+		margin-bottom: 10px;
+	}
+}
+
 /* Center content */
 .center {
 	display: flex;
@@ -129,9 +141,9 @@ body {
 }
 
 .highlightfont {
-	color:Highlight;
+	color: Highlight;
 }
 
 .redfont {
-	color:red;
+	color: red;
 }
