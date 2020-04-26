@@ -19,26 +19,30 @@
 	</div>
 </nav>
 
-<table class="table table-dark">
-	<thead>
-		<tr>
-			<th scope="col">IT Gruppe</th>
-			<th scope="col">IT Evner</th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var computerTechnology in Model)
-		{
+<div class="table-responsive">
+	<table class="table table-dark">
+		<thead>
 			<tr>
-				<td>@computerTechnology.ITGroup</td>
-				<td>@computerTechnology.ITSkills</td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@computerTechnology.Id" asp-action="CreateUpdateComputerTechnology"><i class="highlightfont fas fa-pen"></i></a></td>
-				<td><a asp-controller="AdminCRUD" asp-route-id="@computerTechnology.Id" asp-action="DeleteComputerTechnology"><i class="redfont fas fa-trash-alt"></i></a></td>
+				<th scope="col">IT Gruppe</th>
+				<th scope="col">IT Evner</th>
+				<th></th>
+				<th></th>
 			</tr>
-		}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			@foreach (var computerTechnology in Model)
+			{
+				<tr>
+					<td>@computerTechnology.ITGroup</td>
+					<td>@computerTechnology.ITSkills</td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@computerTechnology.Id" asp-action="CreateUpdateComputerTechnology"><i class="highlightfont fas fa-pen"></i></a></td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@computerTechnology.Id" asp-action="DeleteComputerTechnology"><i class="redfont fas fa-trash-alt"></i></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
 
-<a asp-controller="AdminCRUD" asp-action="CreateUpdateComputerTechnology" class="loginbutton btn btn-primary" role="button">Tilføj en IT evne</a>
+<br />
+
+<a asp-controller="AdminCRUD" asp-action="CreateUpdateComputerTechnology" class="itbutton loginbutton btn btn-primary" role="button">Tilføj en IT evne</a>
