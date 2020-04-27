@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DigitalCV.Web.Controllers
 {
     [Authorize(Roles = "admin")]
+    [ValidateAntiForgeryToken]
     public class AdminCRUDController : Controller
     {
         private readonly IMapper _mapper;
@@ -37,6 +38,7 @@ namespace DigitalCV.Web.Controllers
 
         #region Education
         [HttpGet]
+        [IgnoreAntiforgeryToken]
         public IActionResult CreateUpdateEducation(EducationViewModel model)
         {
             ViewBag.ShowNavbar = false;
@@ -84,6 +86,7 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("Education", "Admin");
         }
 
+        [HttpPost]
         public IActionResult DeleteEducation(EducationViewModel model)
         {
             _educationService.DeleteEducation(model.Id);
@@ -94,6 +97,7 @@ namespace DigitalCV.Web.Controllers
 
         #region WorkExperience
         [HttpGet]
+        [IgnoreAntiforgeryToken]
         public IActionResult CreateUpdateWorkExperience(AdminWorkExperienceViewModel model)
         {
             ViewBag.ShowNavbar = false;
@@ -139,6 +143,7 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("WorkExperience", "Admin");
         }
 
+        [HttpPost]
         public IActionResult DeleteWorkExperience(AdminWorkExperienceViewModel model)
         {
             _workExperienceService.DeleteWorkExperience(model.Id);
@@ -149,6 +154,7 @@ namespace DigitalCV.Web.Controllers
 
         #region ComputerTechnology
         [HttpGet]
+        [IgnoreAntiforgeryToken]
         public IActionResult CreateUpdateComputerTechnology(AdminComputerTechnologyViewModel model)
         {
             ViewBag.ShowNavbar = false;
@@ -196,6 +202,7 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("ComputerTechnology", "Admin");
         }
 
+        [HttpPost]
         public IActionResult DeleteComputerTechnology(AdminComputerTechnologyViewModel model)
         {
             _computerTechnologyService.DeleteComputerTechnology(model.Id);
@@ -205,6 +212,7 @@ namespace DigitalCV.Web.Controllers
         #endregion
 
         [HttpGet]
+        [IgnoreAntiforgeryToken]
         public IActionResult CreateUpdateLanguage(LanguageViewModel model)
         {
             ViewBag.ShowNavbar = false;
@@ -252,6 +260,7 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("MiscellaneousInfo", "Admin");
         }
 
+        [HttpPost]
         public IActionResult DeleteLanguage(LanguageViewModel model)
         {
             _langaugeService.DeleteLanguage(model.Id);
@@ -260,6 +269,7 @@ namespace DigitalCV.Web.Controllers
         }
 
         [HttpGet]
+        [IgnoreAntiforgeryToken]
         public IActionResult CreateUpdateCertificate(CertificateViewModel model)
         {
             ViewBag.ShowNavbar = false;
@@ -307,6 +317,7 @@ namespace DigitalCV.Web.Controllers
             return RedirectToAction("MiscellaneousInfo", "Admin");
         }
 
+        [HttpPost]
         public IActionResult DeleteCertificate(CertificateViewModel model)
         {
             _certificateService.DeleteCertificate(model.Id);

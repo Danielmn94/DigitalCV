@@ -92,6 +92,7 @@ namespace DigitalCV.Web.Controllers
 
         [HttpPost]
         [Authorize(Roles = "admin")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             ViewBag.ShowNavbar = false;
@@ -130,6 +131,8 @@ namespace DigitalCV.Web.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult LogOut()
         {
             _accountService.LogOut();
