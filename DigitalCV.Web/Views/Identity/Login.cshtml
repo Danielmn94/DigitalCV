@@ -1,0 +1,64 @@
+﻿@model DigitalCV.Web.Models.ViewModels.Identity.LoginViewModel
+
+@{
+	ViewData["Title"] = "Login";
+}
+
+<div class="box-2">
+
+	<h1 class="headline mb-5">Mit digitale Curriculum Vitae</h1>
+
+	<div class="card boxcolor col-xl-5 col-lg-5 col-md-6 col-sm-7">
+		<div class="card-body cardbody">
+			<section>
+				<form asp-controller="Identity" asp-action="Login" method="post" novalidate>
+					<h5 class="whitefont">Hej og velkommen ! Venligst login</h5>
+
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+					<div class="form-group mt-5 input-group groupprepend">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="inputgroup input-group-text"><i class="fas fa-envelope"></i></span>
+							</div>
+							<input asp-for="Username" class="formcontrol form-control" placeholder="Brugernavn" autofocus>
+						</div>
+						<div style="width:100%">
+							<span asp-validation-for="Username" class="text-danger d-flex justify-content-center"></span>
+						</div>
+					</div>
+
+					<div class="form-group mt-4 input-group groupprepend">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<div class="inputgroup input-group-text"><i class="fas fa-lock"></i></div>
+							</div>
+							<input asp-for="Password" class="formcontrol form-control" placeholder="Adgangskode" type="password" autocomplete="off">
+						</div>
+						<div style="width:100%">
+							<span asp-validation-for="Password" class="text-danger d-flex justify-content-center"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="custom-control custom-checkbox custom-control-lg">
+							<input asp-for="@Model.RememberMe" type="checkbox" class="custom-control-input">
+							<label asp-for="@Model.RememberMe" class="whitefont custom-control-label"><a class="loginLabel">Husk mig</a></label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<button class="buttonstyle btn btn-primary" name="button" value="login">Login</button>
+					</div>
+				</form>
+			</section>
+		</div>
+
+
+		<div class="card-footer cardfooter">
+			<div class="d-flex justify-content-center whitefont">
+				Udviklet af Daniel M. Nielsen
+			</div>
+		</div>
+	</div>
+</div>

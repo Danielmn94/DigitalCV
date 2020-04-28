@@ -1,0 +1,59 @@
+﻿@model DigitalCV.Web.Models.ViewModels.MiscellaneousInfo.MiscellaneousInfoViewModel
+
+@{
+	ViewData["Title"] = "Andet information";
+}
+
+<div class="jumbotron boxcolor whitefont">
+
+	<div class="row latofont">
+		<div class="col-5">
+			Certifikater
+		</div>
+		<div class="col-7">
+			<ul class="removeuldiscs">
+
+				@foreach (var certificate in Model.Certificates)
+				{
+					<li>@certificate.CertificateName</li>
+				}
+			</ul>
+		</div>
+	</div>
+
+	<div class="row rowbutton">
+		<div class="col-5">
+			Sprog
+		</div>
+		<div class="col-7">
+
+		</div>
+	</div>
+
+	<br />
+
+	<div class="row latofont">
+		@foreach (var langauge in Model.Languages)
+		{
+			<div class="col-5">
+
+				@langauge.LanguageText
+
+			</div>
+			<div class="col-7">
+				<ul class="removeuldiscs">
+
+					<li>@langauge.LevelOfLanguage</li>
+				</ul>
+			</div>
+		}
+	</div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+	$(document).ready(function () {
+		$('.navbar-nav .misc').addClass('active');
+	});
+</script>

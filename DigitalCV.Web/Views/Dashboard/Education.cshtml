@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.Education.EducationViewModel>
+
+@{
+	ViewData["Title"] = "Uddannelser";
+}
+
+<div class="jumbotron boxcolor whitefont">
+	<div class="row rowbutton" >
+		<div class="col-3">
+			År
+		</div>
+		<div class="col-5">
+			Uddannelse
+		</div>
+		<div class="col-4">
+			Skole
+		</div>
+	</div>
+
+	@foreach (var education in Model)
+	{
+		<div class="row latofont">
+			<div class="col-3">
+				@education.TimePeriod
+			</div>
+			<div class="col-5">
+				@education.NameOfEducation
+			</div>
+			<div class="col-4">@education.School</div>
+		</div>
+	}
+</div>
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+	$(document).ready(function () {
+		$('.navbar-nav .education').addClass('active');
+	});
+</script>

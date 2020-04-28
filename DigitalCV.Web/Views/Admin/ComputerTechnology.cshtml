@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.Admin.AdminComputerTechnologyViewModel>
+
+@{
+	ViewData["Title"] = "Ændre IT";
+}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+	<a class="navbar-brand" asp-controller="Dashboard" asp-action="Index">Digital CV</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<a class="nav-item education nav-link" asp-controller="Admin" asp-action="Education">Ændre uddannelser</a>
+			<a class="nav-item education nav-link" asp-controller="Admin" asp-action="WorkExperience">Ændre erhvervserfaring</a>
+			<a class="nav-item education active nav-link" asp-controller="Admin" asp-action="ComputerTechnology">Ændre IT</a>
+			<a class="nav-item education nav-link" asp-controller="Admin" asp-action="MiscellaneousInfo">Ændre andre information</a>
+		</div>
+	</div>
+</nav>
+
+<div class="table-responsive">
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th scope="col">IT Gruppe</th>
+				<th scope="col">IT Evner</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody class="latofont">
+			@foreach (var computerTechnology in Model)
+			{
+				<tr>
+					<td>@computerTechnology.ITGroup</td>
+					<td>@computerTechnology.ITSkills</td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@computerTechnology.Id" asp-action="CreateUpdateComputerTechnology"><i class="highlightfont fas fa-pen"></i></a></td>
+					<td><a asp-controller="AdminCRUD" asp-route-id="@computerTechnology.Id" asp-action="DeleteComputerTechnology"><i class="redfont fas fa-trash-alt"></i></a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+<br />
+
+<a asp-controller="AdminCRUD" asp-action="CreateUpdateComputerTechnology" class="itbutton buttonstyle btn btn-primary" role="button">Tilføj en IT evne</a>

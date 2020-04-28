@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalCV.Web", "DigitalCV.Web\DigitalCV.Web.csproj", "{0A02AD4F-8408-45D1-A1B8-897E00FAEB89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalCV.Service", "DigitalCV.Service\DigitalCV.Service.csproj", "{DD487513-2365-455F-B32A-16862F77EE5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalCV.Service", "DigitalCV.Service\DigitalCV.Service.csproj", "{DD487513-2365-455F-B32A-16862F77EE5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalCV.Repository", "DigitalCV.Repository\DigitalCV.Repository.csproj", "{4946A0BE-97F7-4F41-9A3D-05D1DE2AABCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalCV.DTO", "DigitalCV.DTO\DigitalCV.DTO.csproj", "{6F314CAC-E5E1-4DA5-A317-E88BA77BB8A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalCV.DTO", "DigitalCV.DTO\DigitalCV.DTO.csproj", "{6F314CAC-E5E1-4DA5-A317-E88BA77BB8A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalCV.Data", "DigitalCV.Data\DigitalCV.Data.csproj", "{D225AAA0-72A0-44A7-9935-D292BDFBAAE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +25,14 @@ Global
 		{DD487513-2365-455F-B32A-16862F77EE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD487513-2365-455F-B32A-16862F77EE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD487513-2365-455F-B32A-16862F77EE5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4946A0BE-97F7-4F41-9A3D-05D1DE2AABCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4946A0BE-97F7-4F41-9A3D-05D1DE2AABCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4946A0BE-97F7-4F41-9A3D-05D1DE2AABCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4946A0BE-97F7-4F41-9A3D-05D1DE2AABCF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F314CAC-E5E1-4DA5-A317-E88BA77BB8A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F314CAC-E5E1-4DA5-A317-E88BA77BB8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F314CAC-E5E1-4DA5-A317-E88BA77BB8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F314CAC-E5E1-4DA5-A317-E88BA77BB8A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D225AAA0-72A0-44A7-9935-D292BDFBAAE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D225AAA0-72A0-44A7-9935-D292BDFBAAE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D225AAA0-72A0-44A7-9935-D292BDFBAAE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D225AAA0-72A0-44A7-9935-D292BDFBAAE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

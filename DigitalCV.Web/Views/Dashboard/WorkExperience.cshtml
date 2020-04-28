@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.WorkExperience.WorkExperienceViewModel>
+
+@{
+	ViewData["Title"] = "Erhverserfaring";
+}
+
+<div class="jumbotron boxcolor whitefont">
+	<div class="row rowbutton">
+		<div class="col-4">
+			År
+		</div>
+		<div class="col-8">
+			Arbejdsplads
+		</div>
+	</div>
+
+	<div class="row latofont">
+		@foreach (var workExp in Model)
+		{
+			<div class="col-4">
+				@workExp.TimePeriod
+			</div>
+			<div class="col-8">
+				@workExp.NameOfCompany<br />
+				<a style="font-size:14px">@workExp.WorkingAs</a>
+				<br /> <br />
+				<ul class="removeuldiscs">
+
+					@foreach (var keyArea in workExp.KeyAreasSplitted)
+					{
+						<li>@keyArea</li>
+					}
+				</ul>
+			</div>
+		}
+	</div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+	$(document).ready(function () {
+		$('.navbar-nav .workexp').addClass('active');
+	});
+</script>

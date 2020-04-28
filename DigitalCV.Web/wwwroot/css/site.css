@@ -1,71 +1,186 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+﻿html,
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+	height: 100%;
+	/*background-color: #333;*/
+	/*box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);*/
+	background-image: url(../wallpaper.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: Courgette;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+
+/* Center login box*/
+
+.container {
+	height: 100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.box-2 {
+	flex: 1;
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Login card CSS */
+
+.cardbody {
+	text-align: center;
+}
+
+.boxcolor {
+	background-color: rgba(0,0,0,0.6) !important;
+}
+
+/*Custom font*/
+
+@font-face {
+	font-family: Courgette;
+	src: url(/fonts/Courgette-Regular.ttf);
+}
+
+@font-face {
+	font-family: Lato;
+	src: url(/fonts/Lato-Regular.ttf);
+}
+
+.latofont {
+	font-family: Lato;
+}
+
+.courgettefont {
+	font-family: Courgette;
+}
+
+/* Checkbox color */
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+	background-color: #104F60;
+}
+
+
+/* Login page */
+
+.headline {
+	text-align: center;
+	color: #F5F5F5;
+}
+
+.whitefont {
+	color: white;
+}
+
+.inputgroup {
+	color: #01A1BB;
+	background: white;
+	border: 0;
+}
+
+.formcontrol {
+	border: 0;
+}
+
+.cardfooter {
+	border-top: 1px white solid;
+}
+
+.buttonstyle {
+	background-color: #01A1BB;
+	border-color: #01A1BB;
+}
+
+/* Responsive design */
+
+@media (max-width: 320px) {
+	.headline {
+		margin: 0 !important;
+	}
+}
+
+@media (min-width: 576px) {
+	.card {
+		max-width: 450px;
+	}
+}
+
+/* Remove bullet in validation dic, and center content */
+
+.validation-summary-errors ul {
+	list-style: none;
+	margin-left: -40px
+}
+
+/* Center nav links in navigation bar */
+
+.topnav-centered {
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 991px) {
+	.topnav-centered {
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: none;
+	}
+}
+
+/* Padding for the button used to create new computer technology  */
+@media screen and (max-width: 533px) {
+	.itbutton {
+		margin-bottom: 10px;
+	}
+}
+
+/* Padding for button used to create new language */
+@media screen and (max-width: 320px) {
+	.miscbutton {
+		margin-bottom: 10px;
+	}
+}
+
+/* Center content */
+.center {
+	display: flex;
+	justify-content: center;
+}
+
+/* Used in the admin panel, for tables. Showing delete and update in red and blue */
+
+.highlightfont {
+	color: Highlight;
+}
+
+.redfont {
+	color: red;
+}
+
+/* Removing default ul list style */
+
+.removeuldiscs {
+	list-style-type: disc;
+	font-size: 13px
+}
+
+/* Adds bottm for some rows */
+.rowbutton {
+	font-size: 18px;
+	color: #01A1BB;
+	border-bottom: 1px solid #01a1bb
+}
+
+/* Headline used on dashboard/index */
+.customheadline {
+	font-size: 2rem;
+	line-height: 1.2;
 }

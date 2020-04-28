@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DigitalCV.Web.Models.ViewModels.ComputerTechnology.ComputerTechnologyViewModel>
+
+@{
+	ViewData["Title"] = "IT";
+}
+
+<div class="jumbotron boxcolor whitefont">
+	@foreach (var computerTech in Model)
+	{
+		<div class="row latofont">
+			<div class="col-5">
+				@computerTech.ITGroup
+			</div>
+			<div class="col-7">
+				<ul class="removeuldiscs">
+
+					@foreach (var itSkills in computerTech.ITSkillsSplitted)
+					{
+						<li>@itSkills</li>
+					}
+				</ul>
+			</div>
+		</div>
+	}
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+	$(document).ready(function () {
+		$('.navbar-nav .itexp').addClass('active');
+	});
+</script>
