@@ -15,11 +15,6 @@ namespace DigitalCV.Service.Services
             _userRepository = userRepository;
         }
 
-        public async Task<ApplicationUser> GetUserByEmail(string email)
-        {
-            return await _userRepository.GetUserByEmail(email);
-        }
-
         public async Task<bool> CheckPassword(ApplicationUser user, string password)
         {
             return await _userRepository.CheckPassword(user, password);

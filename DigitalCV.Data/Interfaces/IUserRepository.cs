@@ -6,8 +6,6 @@ namespace DigitalCV.Data.Interfaces
 {
     public interface IUserRepository
     {
-        Task<ApplicationUser> GetUserByEmail(string email);
-
         Task<bool> CheckPassword(ApplicationUser user, string password);
 
         ApplicationUser CreateApplicationUser(string username);

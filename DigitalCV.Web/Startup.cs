@@ -13,6 +13,7 @@ using DigitalCV.Service.Services;
 using DigitalCV.Service.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using DigitalCV.Data.Helpers;
 
 namespace DigitalCV.Web
 {
@@ -50,18 +51,17 @@ namespace DigitalCV.Web
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IAccountRepository, AccountRepository>();
             services.AddTransient<IAccountService, AccountService>();
-            services.AddTransient<IEducationRepository, EducationRepository>();
             services.AddTransient<IEducationService, EducationService>();
-            services.AddTransient<IWorkExperienceRepository, WorkExperienceRepository>();
             services.AddTransient<IWorkExperienceService, WorkExperienceService>();
-            services.AddTransient<IComputerTechnologyRepository, ComputerTechnologyRepository>();
             services.AddTransient<IComputerTechnologyService, ComputerTechnologyService>();
-            services.AddTransient<ILanguageRepository, LanguageRepository>();
-            services.AddTransient<ICertificateRepository, CertificateRepository>();
             services.AddTransient<ILangaugeService, LanguageService>();
             services.AddTransient<ICertificateService, CertificateService>();
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepositoy<>));
+
+            services.AddTransient<Logger>();
+
+            services.AddHttpContextAccessor();
 
             services.Configure<IdentityOptions>(options =>
             {

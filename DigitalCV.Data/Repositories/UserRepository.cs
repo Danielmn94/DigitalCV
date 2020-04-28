@@ -2,41 +2,80 @@
 using DigitalCV.Data.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using System;
+using DigitalCV.Data.Helpers;
 
 namespace DigitalCV.Data.Repositories
 {
     public class UserRepository : IUserRepository
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly Logger _logger;
 
-        public UserRepository(UserManager<ApplicationUser> userManager)
+        public UserRepository(UserManager<ApplicationUser> userManager, Logger logger)
         {
             _userManager = userManager;
-        }
-
-        public async Task<ApplicationUser> GetUserByEmail(string email)
-        {
-            return await _userManager.FindByEmailAsync(email);
+            _logger = logger;
         }
 
         public async Task<bool> CheckPassword(ApplicationUser user, string password)
         {
-            return await _userManager.CheckPasswordAsync(user, password);
+            try
+            {
+                return await _userManager.CheckPasswordAsync(user, password);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(GetType().Name, "Username: " + user.UserName, e.Message,
+                    e.InnerException == null ? "" : e.InnerException.Message);
+
+                return false;
+            }
         }
 
         public ApplicationUser CreateApplicationUser(string username)
         {
-            return new ApplicationUser { UserName = username };
+            try
+            {
+                return new ApplicationUser { UserName = username };
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(GetType().Name, "Username: " + username, e.Message,
+                    e.InnerException == null ? "" : e.InnerException.Message);
+
+                return null;
+            }
         }
 
         public Task<IdentityResult> CreateUser(ApplicationUser user, string password)
         {
-            return _userManager.CreateAsync(user, password);
+            try
+            {
+                return _userManager.CreateAsync(user, password);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(GetType().Name, "Username: " + user.UserName, e.Message,
+                    e.InnerException == null ? "" : e.InnerException.Message);
+
+                return null;
+            }
         }
 
         public Task<ApplicationUser> GetUserByUsername(string username)
         {
-            return _userManager.FindByNameAsync(username);
+            try
+            {
+                return _userManager.FindByNameAsync(username);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(GetType().Name, "Username: " + username, e.Message,
+                    e.InnerException == null ? "" : e.InnerException.Message);
+
+                return null;
+            }
         }
     }
 }
