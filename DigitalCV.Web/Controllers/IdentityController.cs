@@ -109,6 +109,12 @@ namespace DigitalCV.Web.Controllers
 
                 var applicationUser = _userService.CreateApplicationUser(model.Username);
 
+                if (applicationUser == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Kunne ikke oprette bruger");
+                    return View(model);
+                }
+
                 var result = _userService.CreateUser(applicationUser, model.Password);
 
                 if (result.Result.Succeeded)
@@ -117,6 +123,7 @@ namespace DigitalCV.Web.Controllers
 
                     return RedirectToAction("Index","Dashboard");
                 }
+
                 AddErrors(result.Result);
             }
 

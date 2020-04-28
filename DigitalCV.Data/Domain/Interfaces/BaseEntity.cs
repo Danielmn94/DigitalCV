@@ -11,6 +11,7 @@ namespace DigitalCV.Data.Domain.Interfaces
     {
         [Key]
         public int Id { get; set; }
+
         public DateTime? Updated { get; set; }
 
         public DateTime Added { get; set; }
