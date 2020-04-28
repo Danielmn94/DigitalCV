@@ -138,8 +138,6 @@ namespace DigitalCV.Web.Controllers
             }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult LogOut()
         {
             _accountService.LogOut();
